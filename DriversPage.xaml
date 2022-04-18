@@ -1,0 +1,39 @@
+﻿<Page x:Class="Кокарев_Вариант_3.DriversPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Кокарев_Вариант_3"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DriversPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="LVDriversInfo" MouseDoubleClick="LViewDriver_MouseDoubleClick">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="650">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Height="100" Width="100" Stretch="UniformToFill" Source="{Binding Фотография}"/>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="{Binding Имя}"/>
+                            <TextBlock Text="{Binding Фамилия}"/>
+                            <TextBlock Text="{Binding Отчество}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button x:Name="BtnAdd" Click="BtnAdd_Click" Content="Добавить" Width="100" Margin="300,5,5,5"/>
+            <Button x:Name="BtnDelete" Click="BtnDelete_Click" Content="Удалить" Width="100" Margin="5" RenderTransformOrigin="1.434,-1.595"/>
+        </StackPanel>
+    </Grid>
+</Page>
